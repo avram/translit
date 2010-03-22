@@ -1,4 +1,4 @@
-var cyr_to_lat_zamanalif =
+var cyr_to_lat_yanalif1999 =
 {
 	"а" : "a", "А" : "A",
 	"б" : "b", "Б" : "B",
@@ -37,15 +37,15 @@ var cyr_to_lat_zamanalif =
 	"ө" : "ö", "Ө" : "Ö",
 	"ң" : "n̄", "Ң" : "N̄",
 	"ҡ" : "q", "Ҡ" : "Q",
-	"ғ" : "g", "Ғ" : "G",
+	"ғ" : "ğ", "Ғ" : "Ğ",
 	"җ" : "c", "Җ" : "C",
-	"ҙ" : "th", "Ҙ" : "Th",
-	"ҫ" : "th", "Ҫ" : "Th",
+	"ҙ" : "đ", "Ҙ" : "Đ",
+	"ҫ" : "ѣ", "Ҫ" : "Ѣ",
 	"ү" : "ü", "Ү" : "Ü",
 	"һ" : "h", "Һ" : "H"
 };
 
-var cyr_to_lat_rus_loc = 
+var cyr_to_lat_rus_alalc97 = 
 {
 	"а" : "a", "А" : "A",
 	"б" : "b", "Б" : "B",
@@ -124,7 +124,7 @@ function transliterate (inlang, outlang, text) {
 
 	if ((inlang == "tt-Cyr" || inlang == "ba-Cyr")
 		&& (outlang == "tt-Latn" || outlang == "ba-Latn" )) {
-		substitutions = cyr_to_lat_zamanalif;
+		substitutions = cyr_to_lat_yanalif1999;
 	} else return;
 
 	for (var mapped in substitutions) {
