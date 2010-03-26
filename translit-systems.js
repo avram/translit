@@ -32,8 +32,12 @@ var cyr_to_lat_yanalif1999 =
 	"ч" : "ç", "Ч" : "Ç",
 	"ш" : "ş", "Ш" : "Ş",
 	"щ" : "şç", "Щ" : "Şç",
-	"ъ" : "'", "Ъ" : "'",
-	"ь" : "'", "Ь" : "'",
+	// Note that the next two are often replaced by similar-looking
+	// characters in common usage.
+	"ъ" : 'ʺ', "Ъ" : 'ʺ',	// U+02BA MODIFIER LETTER DOUBLE PRIME
+				// Note: ALA-LC stipulates that word-final "ъ"
+				// be dropped.
+	"ь" : 'ʹ', "Ь" : 'ʹ', 	// U+02B9 MODIFER LETTER PRIME
 	"ы" : "ı", "Ы" : "I",
 	"ю" : "yu", "Ю" : "Yu",
 	"я" : "ya", "Я" : "Ya",

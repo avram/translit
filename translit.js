@@ -1,3 +1,6 @@
+/*global cyr_to_lat_yanalif1999, cyr_to_lat_rus_alalc97, cyr_to_lat_tt_alalc97, cyr_to_lat_ba_alalc97, cyr_to_lat_rus_scholarly, cyr_to_lat_rus_iso9_1968, cyr_to_lat_iso9_1995 */
+/*jslint plusplus: false */
+
 // List of transliteration systems
 var systems = [
 	cyr_to_lat_yanalif1999,
@@ -10,35 +13,33 @@ var systems = [
 ];
 
 // Function to find systems that can handle language with given criteria
-function lookup (criteria, direction, systems) {
-	const LANGUAGE = 32;
-	const REGION = 16;
-	const SCRIPT = 8;
-	const VARIANT = 1;
+function lookup(criteria, direction, systems) {
+	var LANGUAGE = 32, REGION = 16, SCRIPT = 8, VARIANT = 1, i;
 
-	for (var i in systems) {
-		if (typeof systems[i]["score"] == "undefined")
-			systems[i]["score"] = 0;
+	for (i = 0; i < systems.length; i++) {
+		if (typeof systems[i].score === "undefined") {
+			systems[i].score = 0;
+		}
 		if (criteria[direction].language && systems[i][direction].language &&
-		    (systems[i][direction].language.indexOf(criteria[direction].language) != -1)) {
-			systems[i]["score"] += LANGUAGE;
+		    (systems[i][direction].language.indexOf(criteria[direction].language) !== -1)) {
+			systems[i].score += LANGUAGE;
 		}
 		if (criteria[direction].region && systems[i][direction].region && 
-		    (systems[i][direction].region.indexOf(criteria[direction].region) != -1)) {
-			systems[i]["score"] += REGION;
+		    (systems[i][direction].region.indexOf(criteria[direction].region) !== -1)) {
+			systems[i].score += REGION;
 		}
 		if (criteria[direction].script && systems[i][direction].script && 
-		    (systems[i][direction].script.indexOf(criteria[direction].script) != -1)) {
-			systems[i]["score"] += SCRIPT;
+		    (systems[i][direction].script.indexOf(criteria[direction].script) !== -1)) {
+			systems[i].score += SCRIPT;
 		}
 		if (criteria[direction].variant && systems[i][direction].variant && 
-		    (systems[i][direction].variant.indexOf(criteria[direction].variant) != -1)) {
-			systems[i]["score"] += VARIANT;
+		    (systems[i][direction].variant.indexOf(criteria[direction].variant) !== -1)) {
+			systems[i].score += VARIANT;
 		}
 	}
 
 	return systems.sort(function (a, b) {
-		return a["score"] < b["score"];
+		return a.score < b.score;
 	});
 }
 
@@ -73,19 +74,18 @@ Date/Publication: 2010-02-19 07:04:02
     ##   variant        5*8alphanum     registered variants
     ##                  DIGIT 3alphanum
  */
-function ietf_language_tag_parse (tag) {
-	var pieces = tag.split("-");
-    
-	var re_language = new RegExp("^[a-zA-Z]{2,8}$");
-	var re_script = new RegExp("^[a-zA-Z]{4}$");
-	var re_region = new RegExp("^([a-zA-Z]{2}|[0-9]{3})$");
-	var re_variant = new RegExp("^([a-zA-Z0-9]{5,8}|[0-9][a-zA-Z0-9]{3})$");
-
-	var out = {"language" : null, "script" : null, "region" : null, "variant" : null};
+function ietf_language_tag_parse(tag) {
+	var	pieces = tag.split("-"),
+		re_language = new RegExp("^[a-zA-Z]{2,8}$"),
+		re_script = new RegExp("^[a-zA-Z]{4}$"),
+		re_region = new RegExp("^([a-zA-Z]{2}|[0-9]{3})$"),
+		re_variant = new RegExp("^([a-zA-Z0-9]{5,8}|[0-9][a-zA-Z0-9]{3})$"),
+		out = {"language" : null, "script" : null, "region" : null, "variant" : null},
+		chunk;
 
 	if (re_language.exec(pieces[0])) {
 		out.language = pieces.shift();
-		for (var chunk in pieces) {
+		for (chunk in pieces) {
 			if (re_script.exec(pieces[chunk])) {
 				out.script = pieces[chunk];
 			} else if (re_region.exec(pieces[chunk])) {
@@ -98,40 +98,47 @@ function ietf_language_tag_parse (tag) {
 	return out;
 }
 
-function inherit (system) {
-	print ("Inheritance for system: "+system.name);
-	if (!system["parent"]) return system["map"];
-	else {	var parental_map = inherit(system["parent"]);
+function inherit(system) {
+	var attr, parental_map;
+	print("Inheritance for system: " + system.name);
+	if (!system.parent) {
+		return system.map;
+	} else {
+		parental_map = inherit(system.parent);
 		for (attr in parental_map) {
-			if (!system["map"][attr]) {
-				system["map"][attr] = parental_map[attr];
+			if (parental_map.hasOwnProperty(attr) && !system.map[attr]) {
+				system.map[attr] = parental_map[attr];
 			}
 		}
 	}
-	return system["map"];
+	return system.map;
 }
 
-function transliterate (inlang, outlang, text) {
-	var substitutions;
+function transliterate(inlang, outlang, text) {
+	var substitutions, criteria, mapped, mapto, inmatches, outmatches;
 
-	if (typeof inlang == "string")
-		var inlang = ietf_language_tag_parse(inlang);
-	if (typeof outlang == "string")
-		var outlang = ietf_language_tag_parse(outlang);
+	if (typeof inlang === "string") {
+		inlang = ietf_language_tag_parse(inlang);
+	}
+	if (typeof outlang === "string") {
+		outlang = ietf_language_tag_parse(outlang);
+	}
 
-	var criteria = {'from' : inlang, 'to' : outlang};
+	criteria = {'from' : inlang, 'to' : outlang};
 
 	// We look for support for input, then output. The matches are ordered by total
 	// score, in order of decreasing score!
-	var inmatches = lookup(criteria, "from", systems);
-	var outmatches = lookup(criteria, "to", inmatches);
+	inmatches = lookup(criteria, "from", systems);
+	outmatches = lookup(criteria, "to", inmatches);
 
 	substitutions = inherit(outmatches[0]);
 
-	for (var mapped in substitutions) {
-		var mapto = substitutions[mapped];
-		if(text.indexOf(mapped) != -1) {
-			text = text.replace(mapped, mapto, "g");
+	for (mapped in substitutions) {
+		if (substitutions.hasOwnProperty(mapped)) {
+			mapto = substitutions[mapped];
+			if (text.indexOf(mapped) !== -1) {
+				text = text.replace(mapped, mapto, "g");
+			}
 		}
 	}
 	
