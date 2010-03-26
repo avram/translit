@@ -2,7 +2,7 @@ var cyr_to_lat_yanalif1999 =
 {	'name' : "Yanalif 1999",
 	'parent' : null,
 	'from' : {'language' : ['tt', 'ba'], 'script' : 'Cyrl'},
-	'to' : {'script' : 'Latn', 'variant' : 'yanalif1999'},
+	'to' : {'language' : ['tt', 'ba'], 'script' : 'Latn', 'variant' : 'yanalif1999'},
 	'map' :
 	{
 	"а" : "a", "А" : "A",
@@ -65,7 +65,7 @@ var cyr_to_lat_rus_alalc97 =
 {	'name' : "ALA-LC 1997, Russian",
 	'parent' : null,
 	'from' : {'language' : 'ru', 'script' : 'Cyrl'},
-	'to' : {'script' : 'Latn', 'variant' : 'alalc97'},
+	'to' : {'language' : 'ru', 'script' : 'Latn', 'variant' : 'alalc97'},
 	'map' :
 	{
 	"а" : "a", "А" : "A",
@@ -125,7 +125,7 @@ var cyr_to_lat_tt_alalc97 =
 {	'name' : "ALA-LC 1997, Tatar",
 	'parent' : cyr_to_lat_rus_alalc97,
 	'from' : {'language' : 'tt', 'script' : 'Cyrl'},
-	'to' : {'script' : 'Latn', 'variant' : 'alalc97'},
+	'to' : {'language' : 'tt', 'script' : 'Latn', 'variant' : 'alalc97'},
 	'map' :
 	{
 	"ә" : "ă", "Ә" : "Ă",
@@ -155,7 +155,7 @@ var cyr_to_lat_ba_alalc97 =
 {	'name' : "ALA-LC 1997, Bashkir",
 	'parent' : cyr_to_lat_rus_alalc97,
 	'from' : {'language' : 'ba', 'script' : 'Cyrl'},
-	'to' : {'script' : 'Latn', 'variant' : 'alalc97'},
+	'to' : {'language' : 'ba', 'script' : 'Latn', 'variant' : 'alalc97'},
 	'map' :
 	{
 	"ә" : "ă", "Ә" : "Ă",
@@ -180,7 +180,7 @@ var cyr_to_lat_rus_scholarly =
 {	'name' : "International Scholarly System",
 	'parent' : null,
 	'from' : {'language' : 'ru', 'script' : 'Cyrl'},
-	'to' : {'script' : 'Latn', 'variant' : 'scholarly'},
+	'to' : {'language' : 'ru', 'script' : 'Latn', 'variant' : 'scholarly'},
 	'map' : 
 	{
 	"а" : "a", "А" : "A",
@@ -233,7 +233,7 @@ var cyr_to_lat_rus_iso9_1968 =
 {	'name' : "ISO/R 9:1968",
 	'parent' : cyr_to_lat_rus_scholarly,
 	'from' : {'language' : 'ru', 'script' : 'Cyrl'},
-	'to' : {'script' : 'Latn', 'variant' : 'iso9_1968'},
+	'to' : {'language' : 'ru', 'script' : 'Latn', 'variant' : 'iso9_1968'},
 	'map' : 
 	{
 	"э" : "ė", "Э" : "Ė",
@@ -250,8 +250,8 @@ var cyr_to_lat_iso9_1995 =
 {	'name' : "ISO 9:1995",
 	'parent' : null,
 	// TODO complete language list
-	'from' : {'language' : ['ru', 'ba', 'tt'], 'script' : 'Cyrl'},
-	'to' : {'script' : 'Latn', 'variant' : 'iso9_1995'},
+	'from' : {'language' : ['ru','tt'], 'script' : 'Cyrl'},
+	'to' : {'language' : ['ru', 'tt'], 'script' : 'Latn', 'variant' : 'iso9_1995'},
 	'map' : 
 	{
 "а" : "a", "А" : "A",	// 
@@ -303,7 +303,7 @@ var cyr_to_lat_iso9_1995 =
 "ԛ" : "q", "Ԛ" : "Q",	// 
 "л" : "l", "Л" : "L",	// 
 "љ" : "l̂", "Љ" : "L̂",	// L+0302 	l+0302 	l circumflex
-"л’" : "ĺ", "Л’" : "Ĺ", // 0139 	013A 	l acute
+"Л́" : "ĺ", "Л́" : "Ĺ",	// 0139 	013A 	l acute // XXX This may be broken-- is the input correct?
 "ӆ" : "ļ", "Ӆ" : "Ļ",	// 013B 	013C 	l cedilla
 "м" : "m", "М" : "M",	// 
 "н" : "n", "Н" : "N",	// 

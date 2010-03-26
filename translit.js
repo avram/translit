@@ -19,19 +19,19 @@ function lookup (criteria, direction, systems) {
 	for (var i in systems) {
 		if (typeof systems[i]["score"] == "undefined")
 			systems[i]["score"] = 0;
-		if (criteria[direction].language &&
+		if (criteria[direction].language && systems[i][direction].language &&
 		    (systems[i][direction].language.indexOf(criteria[direction].language) != -1)) {
 			systems[i]["score"] += LANGUAGE;
 		}
-		if (criteria[direction].region &&
+		if (criteria[direction].region && systems[i][direction].region && 
 		    (systems[i][direction].region.indexOf(criteria[direction].region) != -1)) {
 			systems[i]["score"] += REGION;
 		}
-		if (criteria[direction].script &&
+		if (criteria[direction].script && systems[i][direction].script && 
 		    (systems[i][direction].script.indexOf(criteria[direction].script) != -1)) {
 			systems[i]["score"] += SCRIPT;
 		}
-		if (criteria[direction].variant &&
+		if (criteria[direction].variant && systems[i][direction].variant && 
 		    (systems[i][direction].variant.indexOf(criteria[direction].variant) != -1)) {
 			systems[i]["score"] += VARIANT;
 		}
@@ -114,7 +114,10 @@ function inherit (system) {
 function transliterate (inlang, outlang, text) {
 	var substitutions;
 
-	var inlang = ietf_language_tag_parse(inlang);
+	if (typeof inlang == "string")
+		var inlang = ietf_language_tag_parse(inlang);
+	if (typeof outlang == "string")
+		var outlang = ietf_language_tag_parse(outlang);
 
 	var criteria = {'from' : inlang, 'to' : outlang};
 
