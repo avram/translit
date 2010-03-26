@@ -7,6 +7,9 @@ var systems = [
 	cyr_to_lat_rus_alalc97,
 	cyr_to_lat_tt_alalc97,
 	cyr_to_lat_ba_alalc97,
+	cyr_to_lat_rus_alalc97x,
+	cyr_to_lat_tt_alalc97x,
+	cyr_to_lat_ba_alalc97x,
 	cyr_to_lat_rus_scholarly,
 	cyr_to_lat_rus_iso9_1968,
 	cyr_to_lat_iso9_1995
@@ -36,6 +39,7 @@ function lookup(criteria, direction, systems) {
 		    (systems[i][direction].variant.indexOf(criteria[direction].variant) !== -1)) {
 			systems[i].score += VARIANT;
 		}
+		//print(direction + ": "+systems[i].name+" "+systems[i].score);
 	}
 
 	return systems.sort(function (a, b) {
@@ -115,7 +119,10 @@ function inherit(system) {
 }
 
 function transliterate(inlang, outlang, text) {
-	var substitutions, criteria, mapped, mapto, inmatches, outmatches;
+	var	substitutions, criteria,
+		mapped, mapto,
+		inmatches, outmatches,
+		i;
 
 	if (typeof inlang === "string") {
 		inlang = ietf_language_tag_parse(inlang);
@@ -123,6 +130,11 @@ function transliterate(inlang, outlang, text) {
 	if (typeof outlang === "string") {
 		outlang = ietf_language_tag_parse(outlang);
 	}
+
+	// Reset system scores
+	for (i = 0; i < systems.length; i++) {
+		systems[i].score = 0;
+	} 
 
 	criteria = {'from' : inlang, 'to' : outlang};
 
