@@ -1,3 +1,4 @@
+/* Ad hoc Yanalif 1999-style system */
 var cyr_to_lat_yanalif1999 =
 {	'name' : "Yanalif 1999",
 	'parent' : null,
@@ -118,6 +119,34 @@ var cyr_to_lat_rus_alalc97 =
 	}
 }
 
+/* This is the ALA-LC 1997 romanization, _simplified_
+  	http://www.loc.gov/catdir/cpso/roman.html */
+/* 	Russian basic letters. The details of this non-standard, but
+	commonly-used romanization are at:
+		http://intranet.library.arizona.edu/users/brewerm/sil/lib/major.html */
+/* Source: "ALA-LC Romanization Tables" (1997), pp. 138, 184
+	with modification as above */
+var cyr_to_lat_rus_alalc97x = 
+{	'name' : "ALA-LC 1997 (simplified), Russian",
+	'parent' : cyr_to_lat_rus_alalc97,
+	'from' : {'language' : 'ru', 'script' : 'Cyrl'},
+	'to' : {'language' : 'ru', 'script' : 'Latn', 'variant' : 'alalc97x'},
+	'map' :
+	{
+	"й" : "i", "Й" : "I",
+	"ц" : "ts", "Ц" : "TS",
+	"ю" : "iu", "Ю" : "IU",	
+	"я" : "ia", "Я" : "IA",	
+	"э" : "e", "Э" : "E",
+	// The following are obsolete letters
+	"і" : "i", "І" : "I",
+	"ѣ" : "ie", "Ѣ" : "IE", 
+	"ѧ" : "e", "Ѧ" : "E",
+	"ѳ" : "f", "Ѳ" : "F",
+	"ѵ" : "y", "Ѵ" : "Y"
+	}
+}
+
 /* This is the ALA-LC 1997 standard romanization
   	http://www.loc.gov/catdir/cpso/roman.html */
 /* 	Tatar Cyrillic. This can be used for tt-Cyrl.
@@ -135,6 +164,42 @@ var cyr_to_lat_tt_alalc97 =
 	"ә" : "ă", "Ә" : "Ă",
 	"ө" : "ȯ", "Ө" : "Ȯ",
 	"ң" : "n︠︡g", "Ң" : "N︠︡G",
+	"җ" : "j", "Җ" : "J",
+	"ү" : "u̇", "Ү" : "U̇",
+	"һ" : "ḣ", "Һ" : "Ḣ",	// ALA-LC appears to stipulate U+0358 COMBINING DOT ABOVE RIGHT for "ḣ",
+				// but that seems to cause problems and is not combined correctly. We use
+				// U+0307 DOT ABOVE in uppercase and lowercase here.
+	// The following were proposed in 1999. They are not
+	// documented in ALA-LC 1997. Transliteration follows ALA-LC 1997's
+	// treatment of equivalent glyphs in Bashkir (ba-Cyrl).
+	"қ" : "q", "Қ" : "Q",
+	"ґ" : "gh", "Ґ" : "Gh",
+	// Transliteration follows the equivalent glyph in Karakalpak, Eskimo-Yuit
+	"ў" : "w", "Ў" : "W"
+	} 
+}
+
+/* This is the ALA-LC 1997 romanization, _simplified_
+  	http://www.loc.gov/catdir/cpso/roman.html */
+/* 	Tatar Cyrillic. This can be used for tt-Cyrl.
+	This is based on the 1939 Cyrillic, but also includes
+	the letters proposed in 1999 in preparation for 
+	the abortive switch to a Latin script. */
+/* Note: In order to maintain the basic vowel contrasts,
+	only the ligature on NG is removed here. Vowels'
+	diacriticals remain. */
+/* Source: "ALA-LC Romanization Tables" (1997), p. 153,
+	modified as noted */
+var cyr_to_lat_tt_alalc97x =
+{	'name' : "ALA-LC 1997 (simple), Tatar",
+	'parent' : cyr_to_lat_rus_alalc97x,
+	'from' : {'language' : 'tt', 'script' : 'Cyrl'},
+	'to' : {'language' : 'tt', 'script' : 'Latn', 'variant' : 'alalc97x'},
+	'map' :
+	{
+	"ә" : "ă", "Ә" : "Ă",
+	"ө" : "ȯ", "Ө" : "Ȯ",
+	"ң" : "ng", "Ң" : "NG",
 	"җ" : "j", "Җ" : "J",
 	"ү" : "u̇", "Ү" : "U̇",
 	"һ" : "ḣ", "Һ" : "Ḣ",	// ALA-LC appears to stipulate U+0358 COMBINING DOT ABOVE RIGHT for "ḣ",
@@ -172,6 +237,36 @@ var cyr_to_lat_ba_alalc97 =
 	"ҡ" : "q", "Ҡ" : "Q",
 	"ғ" : "g︠︡h", "Ғ" : "G︠︡H",
 	"ҙ" : "t︠︡h", "Ҙ" : "T︠︡H",
+	"ҫ" : "th", "Ҫ" : "Th"
+	} 
+}
+
+/* This is the ALA-LC 1997 romanization, _simplified_
+  	http://www.loc.gov/catdir/cpso/roman.html */
+/* 	Bashkir Cyrillic. This can be used for ba-Cyrl.
+	This is based on the 1939 Cyrillic. */
+/* Note: In order to maintain the basic vowel contrasts,
+	only the ligature on NG is removed here. Vowels'
+	diacriticals remain. */
+/* Source: "ALA-LC Romanization Tables" (1997), p. 140,
+	modified as noted */
+var cyr_to_lat_ba_alalc97x =
+{	'name' : "ALA-LC 1997, Bashkir",
+	'parent' : cyr_to_lat_rus_alalc97x,
+	'from' : {'language' : 'ba', 'script' : 'Cyrl'},
+	'to' : {'language' : 'ba', 'script' : 'Latn', 'variant' : 'alalc97x'},
+	'map' :
+	{
+	"ә" : "ă", "Ә" : "Ă",
+	"ө" : "ȯ", "Ө" : "Ȯ",
+	"ң" : "ng", "Ң" : "NG",
+	"ү" : "u̇", "Ү" : "U̇",
+	"һ" : "ḣ", "Һ" : "Ḣ",	// ALA-LC appears to stipulate U+0358 COMBINING DOT ABOVE RIGHT for "ḣ",
+				// but that seems to cause problems and is not combined correctly. We use
+				// U+0307 DOT ABOVE in uppercase and lowercase here.
+	"ҡ" : "q", "Ҡ" : "Q",
+	"ғ" : "gh", "Ғ" : "GH",
+	"ҙ" : "th", "Ҙ" : "TH",	// Note the loss of good contrast
 	"ҫ" : "th", "Ҫ" : "Th"
 	} 
 }
@@ -249,6 +344,7 @@ var cyr_to_lat_rus_iso9_1968 =
 
 /* This is ISO 9:1995 
   	http://en.wikipedia.org/wiki/ISO_9 */
+/* TODO Make reverse table-- ISO 9:1995 is designed to be reversible */
 /* Source: "ISO 9", Wikipedia. */
 var cyr_to_lat_iso9_1995 = 
 {	'name' : "ISO 9:1995",
@@ -383,5 +479,57 @@ var cyr_to_lat_iso9_1995 =
 "ѫ" : "ǎ", "Ѫ" : "Ǎ",	// 01CD 	01CE 	a caron
 "ѳ" : "f̀", "Ѳ" : "F̀",	// F+0300 	f+0300 	f grave
 "ѵ" : "ỳ", "Ѵ" : "Ỳ"	// 1EF2 	1EF3 	y grave
+	}
+}
+
+/* Azerbaijani Cyrillic to Latin
+  	per UNGEGN Working Group on Romanization Systems */
+/* Source:
+REPORT ON THE CURRENT STATUS OF UNITED NATIONS ROMANIZATION SYSTEMS FOR GEOGRAPHICAL NAMES
+Compiled by the UNGEGN Working Group on Romanization Systems
+Version 2.2, January 2003
+	http://www.eki.ee/wgrs/rom2_az.htm */
+/* Note: This does not cover all the Cyrillic letters, and the source seems a little
+   suspect. */
+var cyr_to_lat_az_1991 =
+{	'name' : "Azerbaijani Cyrillic->Latin 1991",
+	'parent' : null,
+	'from' : {'language' : 'az', 'script' : 'Cyrl'},
+	'to' : {'language' : 'az', 'script' : 'Latn', 'variant' : 'az1991'},
+	'map' :
+	{
+	"А" : "A", "а" : "a",
+	"Б" : "B", "б" : "b",
+	"В" : "V", "в" : "v",
+	"Г" : "G", "г" : "g",
+	"Ғ" : "Ğ", "ғ" : "ğ",
+	"Д" : "D", "д" : "d",
+	"Е" : "E", "е" : "e",
+	"Ә" : "Ə", "ә" : "ə",
+	"Ж" : "J", "ж" : "j",
+	"З" : "Z", "з" : "z",
+	"И" : "İ", "и" : "i",
+	"Ы" : "I", "ы" : "ı",
+	"Ј" : "Y", "ј" : "y",
+	"К" : "K", "к" : "k",
+	"Ҝ" : "G", "ҝ" : "g",
+	"Л" : "L", "л" : "l",
+	"М" : "M", "м" : "m",
+	"Н" : "N", "н" : "n",
+	"О" : "O", "о" : "o",
+	"Ө" : "Ö", "ө" : "ö",
+	"П" : "P", "п" : "p",
+	"Р" : "R", "р" : "r",
+	"С" : "S", "с" : "s",
+	"Т" : "T", "т" : "t",
+	"У" : "U", "у" : "u",
+	"Ү" : "Ü", "ү" : "ü",
+	"Ф" : "F", "ф" : "f",
+	"Х" : "X", "х" : "x",
+	"Һ" : "H", "һ" : "h",
+	"Ч" : "Ç", "ч" : "ç",
+	"Ҹ" : "C", "ҹ" : "c",
+	"Ш" : "Ş", "ш" : "ş",
+	"’" : "’", "’" : "’"
 	}
 }
