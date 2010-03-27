@@ -104,10 +104,10 @@ function ietf_language_tag_parse(tag) {
 
 function inherit(system) {
 	var attr, parental_map;
-	print("Inheritance for system: " + system.name);
 	if (!system.parent) {
 		return system.map;
 	} else {
+		print ("\tInherits from " + system.parent.name);
 		parental_map = inherit(system.parent);
 		for (attr in parental_map) {
 			if (parental_map.hasOwnProperty(attr) && !system.map[attr]) {
@@ -135,6 +135,11 @@ function transliterate(inlang, outlang, text) {
 	for (i = 0; i < systems.length; i++) {
 		systems[i].score = 0;
 	} 
+	// Sort systems to be reproducible
+	// This is not a very transparent sort
+	systems.sort(function (a,b) {
+		return a.name > b.name;
+	});
 
 	criteria = {'from' : inlang, 'to' : outlang};
 
@@ -143,6 +148,7 @@ function transliterate(inlang, outlang, text) {
 	inmatches = lookup(criteria, "from", systems);
 	outmatches = lookup(criteria, "to", inmatches);
 
+	print("Inheritance for system: " + outmatches[0].name);
 	substitutions = inherit(outmatches[0]);
 
 	for (mapped in substitutions) {
