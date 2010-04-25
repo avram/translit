@@ -345,13 +345,185 @@ var cyr_to_lat_rus_iso9_1968 =
 /* This is ISO 9:1995 
   	http://en.wikipedia.org/wiki/ISO_9 */
 /* TODO Make reverse table-- ISO 9:1995 is designed to be reversible */
-/* Source: "ISO 9", Wikipedia. */
+/* Sources:
+ 1. "ISO 9", Wikipedia.
+ 2. Information and documentation -- Transliteration of Cyrillic characters into Latin characters -- Slavic and non-Slavic languages, International Standard (Reference number ISO 9:1995(E)). (Geneva, Switzerland: International Organization for Standardization, February 15, 1995).*/
+
 var cyr_to_lat_iso9_1995 = 
 {	'name' : "ISO 9:1995",
 	'parent' : null,
-	// TODO complete language list
-	'from' : {'language' : ['ru','tt'], 'script' : 'Cyrl'},
-	'to' : {'language' : ['ru', 'tt'], 'script' : 'Latn', 'variant' : 'iso9_1995'},
+	'from' : {'language' : [
+/* Coverage:
+	Slavic languages (2, Table 1): */
+		'bg', // Bulgarian
+		'be', // Byelorussian
+		'mk', // Macedonian
+		'ru', //Russian
+		'sr', // Serbo-Croatian
+		'uk', // Ukrainian
+/*	Non-Slavic languages (2, annex C): */
+		// Abaza
+		'ab', //Abkhaz
+		// Awar
+		'ady', // Adyge (Circassian)
+		'az', // Azeri
+		'alt', // Altay
+		'krc', // Balkar
+		'ba', // Bashkir
+		'bua', // Buryat
+		// Gagauzi
+		'dar', // Dargwa
+		// Dolgan
+		// Dungan
+		'inh', // Ingush
+		'kbd', // Kabardian (Circassian)
+		'kk', // Kazakh
+		'xal', // Kalmyk
+		// Karaim
+		'kaa', // Karakalpak
+		'krc', // Karachay
+		'krl', // Karelian
+		// Ket
+		'kv', // Komi-Zyrian
+		'kv', // Komi-Permian	***
+		// Koryak
+		'crh', // Crimean Tatar
+		'kum', // Kumyk
+		'ku', // Kurdish
+		'ky', // Kirgiz
+		// Lak
+		'lez', // Lezgian
+		// Mansi
+		'chm', // Mari (high)
+		'chm', // Mari (low)	***
+		'ro', // Moldavian
+		'mn', // Mongolian
+		// Mordvin-Moksha
+		// Mordvin-Erza
+		// Nanay
+		// Nganasan
+		// Nenets
+		// Nivkh
+		'nog', // Noghay
+		'os', // Ossetic
+		'se', 'sma', 'smi', // Saam
+		'sel', // Selkup
+		// Tabasaran
+		'tg', // Tajik
+		'tt', // Tatar
+		// Tat
+		// Tafalar
+		'tyv', // Tuva
+		'tk', // Turkmen
+		'udm', // Udmurt
+		// Udegey
+		'uz', // Uzbek
+		// Urghur
+		// Ulch
+		// Khakass
+		// Vakh Khanty
+		// Kazym Khanty
+		// Surgut Khany
+		// Shurkshar Khanty
+		'rom', // Tsigan
+		'ce', // Chechen
+		'cv', // Chuvash
+		// Chukcha
+		// Shor
+		// Shugnan
+		// Evenki
+		// Even
+		// Eskimo
+		// Yukagir
+		// Yazgulam
+		'sah' // Yakut
+	], 'script' : 'Cyrl'},
+	'to' : {'language' : [
+/* Coverage:
+	Slavic languages (2, Table 1): */
+		'bg', // Bulgarian
+		'be', // Byelorussian
+		'mk', // Macedonian
+		'ru', //Russian
+		'sr', // Serbo-Croatian
+		'uk', // Ukrainian
+/*	Non-Slavic languages (2, annex C): */
+		// Abaza
+		'ab', //Abkhaz
+		// Awar
+		'ady', // Adyge (Circassian)
+		'az', // Azeri
+		'alt', // Altay
+		'krc', // Balkar
+		'ba', // Bashkir
+		'bua', // Buryat
+		// Gagauzi
+		'dar', // Dargwa
+		// Dolgan
+		// Dungan
+		'inh', // Ingush
+		'kbd', // Kabardian (Circassian)
+		'kk', // Kazakh
+		'xal', // Kalmyk
+		// Karaim
+		'kaa', // Karakalpak
+		'krc', // Karachay
+		'krl', // Karelian
+		// Ket
+		'kv', // Komi-Zyrian
+		'kv', // Komi-Permian	***
+		// Koryak
+		'crh', // Crimean Tatar
+		'kum', // Kumyk
+		'ku', // Kurdish
+		'ky', // Kirgiz
+		// Lak
+		'lez', // Lezgian
+		// Mansi
+		'chm', // Mari (high)
+		'chm', // Mari (low)	***
+		'ro', // Moldavian
+		'mn', // Mongolian
+		// Mordvin-Moksha
+		// Mordvin-Erza
+		// Nanay
+		// Nganasan
+		// Nenets
+		// Nivkh
+		'nog', // Noghay
+		'os', // Ossetic
+		'se', 'sma', 'smi', // Saam
+		'sel', // Selkup
+		// Tabasaran
+		'tg', // Tajik
+		'tt', // Tatar
+		// Tat
+		// Tafalar
+		'tyv', // Tuva
+		'tk', // Turkmen
+		'udm', // Udmurt
+		// Udegey
+		'uz', // Uzbek
+		// Urghur
+		// Ulch
+		// Khakass
+		// Vakh Khanty
+		// Kazym Khanty
+		// Surgut Khany
+		// Shurkshar Khanty
+		'rom', // Tsigan
+		'ce', // Chechen
+		'cv', // Chuvash
+		// Chukcha
+		// Shor
+		// Shugnan
+		// Evenki
+		// Even
+		// Eskimo
+		// Yukagir
+		// Yazgulam
+		'sah' // Yakut
+	], 'script' : 'Latn', 'variant' : 'iso9_1995'},
 	'map' : 
 	{
 "а" : "a", "А" : "A",	// 

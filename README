@@ -1,2 +1,6 @@
 Project to make transliteration work better and to let computers
 help out in extensible, well-documented ways.
+
+See tests.js for some examples of how this works.
+
+To add support for more transliteration systems, see translit-systems.js .

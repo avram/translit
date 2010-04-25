@@ -10,7 +10,7 @@ function assertEqual(a, b) {
 		return true;
 	} else {
 		print("\t" + a + "\n\t" + b);
-		print("Fail (" + (test++) + ")");
+		print("[31mFail (" + (test++) + ")[0m");
 		return false;
 	}
 }
@@ -27,3 +27,4 @@ assertEqual(
 		transliterate({"language" : "ru", "region" : "RU", "script" : "Cyrl"},
 				{"script" : "Latn", "language" : "ru"},
 				"Сработает ли это? Тут была Юлия, купила хлеб."));
+

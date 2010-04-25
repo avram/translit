@@ -1,4 +1,4 @@
-/*global cyr_to_lat_yanalif1999, cyr_to_lat_rus_alalc97, cyr_to_lat_tt_alalc97, cyr_to_lat_ba_alalc97, cyr_to_lat_rus_scholarly, cyr_to_lat_rus_iso9_1968, cyr_to_lat_iso9_1995 */
+/*global cyr_to_lat_yanalif1999, cyr_to_lat_rus_alalc97, cyr_to_lat_tt_alalc97, cyr_to_lat_ba_alalc97, cyr_to_lat_rus_scholarly, cyr_to_lat_rus_iso9_1968, cyr_to_lat_iso9_1995, cyr_to_lat_rus_alalc97x, cyr_to_lat_tt_alalc97x, cyr_to_lat_ba_alalc97x */
 /*jslint plusplus: false */
 
 // List of transliteration systems
@@ -17,7 +17,7 @@ var systems = [
 
 // Function to find systems that can handle language with given criteria
 function lookup(criteria, direction, systems) {
-	var LANGUAGE = 32, REGION = 16, SCRIPT = 8, VARIANT = 1, i;
+	var LANGUAGE = 16, REGION = 1, SCRIPT = 32, VARIANT = 8, i;
 
 	for (i = 0; i < systems.length; i++) {
 		if (typeof systems[i].score === "undefined") {
@@ -39,7 +39,7 @@ function lookup(criteria, direction, systems) {
 		    (systems[i][direction].variant.indexOf(criteria[direction].variant) !== -1)) {
 			systems[i].score += VARIANT;
 		}
-		//print(direction + ": "+systems[i].name+" "+systems[i].score);
+		// print(direction + ": "+systems[i].name+" "+systems[i].score);
 	}
 
 	return systems.sort(function (a, b) {
@@ -107,7 +107,7 @@ function inherit(system) {
 	if (!system.parent) {
 		return system.map;
 	} else {
-		print ("\tInherits from " + system.parent.name);
+		print("\tInherits from " + system.parent.name);
 		parental_map = inherit(system.parent);
 		for (attr in parental_map) {
 			if (parental_map.hasOwnProperty(attr) && !system.map[attr]) {
@@ -137,7 +137,7 @@ function transliterate(inlang, outlang, text) {
 	} 
 	// Sort systems to be reproducible
 	// This is not a very transparent sort
-	systems.sort(function (a,b) {
+	systems.sort(function (a, b) {
 		return a.name > b.name;
 	});
 
