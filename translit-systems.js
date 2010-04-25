@@ -347,7 +347,8 @@ var cyr_to_lat_rus_iso9_1968 =
 /* TODO Make reverse table-- ISO 9:1995 is designed to be reversible */
 /* Sources:
  1. "ISO 9", Wikipedia.
- 2. Information and documentation -- Transliteration of Cyrillic characters into Latin characters -- Slavic and non-Slavic languages, International Standard (Reference number ISO 9:1995(E)). (Geneva, Switzerland: International Organization for Standardization, February 15, 1995).*/
+ 2. Information and documentation -- Transliteration of Cyrillic characters into Latin characters -- Slavic and non-Slavic languages, International Standard (Reference number ISO 9:1995(E)). (Geneva, Switzerland: International Organization for Standardization, February 15, 1995).
+ 3. IANA Language Subtag Registry, http://www.iana.org/assignments/language-subtag-registry */
 
 var cyr_to_lat_iso9_1995 = 
 {	'name' : "ISO 9:1995",
@@ -362,80 +363,82 @@ var cyr_to_lat_iso9_1995 =
 		'sr', // Serbo-Croatian
 		'uk', // Ukrainian
 /*	Non-Slavic languages (2, annex C): */
-		// Abaza
+		'abq', // Abaza
 		'ab', //Abkhaz
-		// Awar
+		'av', // Awar or Avar
 		'ady', // Adyge (Circassian)
 		'az', // Azeri
 		'alt', // Altay
 		'krc', // Balkar
 		'ba', // Bashkir
 		'bua', // Buryat
-		// Gagauzi
+		'gag', // Gagauzi
 		'dar', // Dargwa
-		// Dolgan
-		// Dungan
+		'dlg', // Dolgan
+		'dng', // Dungan
 		'inh', // Ingush
 		'kbd', // Kabardian (Circassian)
 		'kk', // Kazakh
 		'xal', // Kalmyk
-		// Karaim
+		'kdr', // Karaim
 		'kaa', // Karakalpak
 		'krc', // Karachay
 		'krl', // Karelian
-		// Ket
-		'kv', // Komi-Zyrian
-		'kv', // Komi-Permian	***
-		// Koryak
+		'ket', // Ket
+		'kv', 'kpv',  // Komi-Zyrian
+		'koi', // Komi-Permian
+		'kpy', // Koryak
 		'crh', // Crimean Tatar
 		'kum', // Kumyk
 		'ku', // Kurdish
 		'ky', // Kirgiz
-		// Lak
+		'lbe', // Lak
 		'lez', // Lezgian
-		// Mansi
-		'chm', // Mari (high)
-		'chm', // Mari (low)	***
+		'mns', // Mansi
+		'chm', // Mari 
+		'mrj', // Mari (high, hill)
+		'mhr', // Mari (low, meadow)
 		'ro', // Moldavian
 		'mn', // Mongolian
-		// Mordvin-Moksha
-		// Mordvin-Erza
-		// Nanay
-		// Nganasan
-		// Nenets
-		// Nivkh
+		'mdf', // Mordvin-Moksha
+		'myv', // Mordvin-Erza
+		'gld', // Nanay
+		'nio', // Nganasan
+		'yrk', // Nenets
+		'niv', // Nivkh or Gilyak
 		'nog', // Noghay
 		'os', // Ossetic
 		'se', 'sma', 'smi', // Saam
 		'sel', // Selkup
-		// Tabasaran
+		'tab', // Tabasaran
 		'tg', // Tajik
 		'tt', // Tatar
-		// Tat
-		// Tafalar
+		'ttt', // Tat
+		'kim', // Tofalar or Karagas
 		'tyv', // Tuva
 		'tk', // Turkmen
 		'udm', // Udmurt
-		// Udegey
+		'ude', // Udegey
 		'uz', // Uzbek
-		// Urghur
-		// Ulch
-		// Khakass
-		// Vakh Khanty
+		'ug', // Uyghur
+		'ulc', // Ulch
+		'kjh', // Khakass
+		'kca', // Vakh Khanty ***
 		// Kazym Khanty
-		// Surgut Khany
+		// Surgut Khanty
 		// Shurkshar Khanty
 		'rom', // Tsigan
 		'ce', // Chechen
 		'cv', // Chuvash
-		// Chukcha
-		// Shor
-		// Shugnan
-		// Evenki
-		// Even
-		// Eskimo
-		// Yukagir
-		// Yazgulam
+		'ckt', // Chukcha
+		'cjs', // Shor
+		'sgh', // Shugnan or Shughni
+		'evn', // Evenki
+		'eve', // Even
+		'esx', // Eskimo
+		'ykg', // Northern Yukagir
+		'yux', // Southern Yukagir
+		'yah', // Yazgulam
 		'sah' // Yakut
 	], 'script' : 'Cyrl'},
 	'to' : {'language' : [
@@ -448,80 +451,82 @@ var cyr_to_lat_iso9_1995 =
 		'sr', // Serbo-Croatian
 		'uk', // Ukrainian
 /*	Non-Slavic languages (2, annex C): */
-		// Abaza
+		'abq', // Abaza
 		'ab', //Abkhaz
-		// Awar
+		'av', // Awar or Avar
 		'ady', // Adyge (Circassian)
 		'az', // Azeri
 		'alt', // Altay
 		'krc', // Balkar
 		'ba', // Bashkir
 		'bua', // Buryat
-		// Gagauzi
+		'gag', // Gagauzi
 		'dar', // Dargwa
-		// Dolgan
-		// Dungan
+		'dlg', // Dolgan
+		'dng', // Dungan
 		'inh', // Ingush
 		'kbd', // Kabardian (Circassian)
 		'kk', // Kazakh
 		'xal', // Kalmyk
-		// Karaim
+		'kdr', // Karaim
 		'kaa', // Karakalpak
 		'krc', // Karachay
 		'krl', // Karelian
-		// Ket
-		'kv', // Komi-Zyrian
-		'kv', // Komi-Permian	***
-		// Koryak
+		'ket', // Ket
+		'kv', 'kpv',  // Komi-Zyrian
+		'koi', // Komi-Permian
+		'kpy', // Koryak
 		'crh', // Crimean Tatar
 		'kum', // Kumyk
 		'ku', // Kurdish
 		'ky', // Kirgiz
-		// Lak
+		'lbe', // Lak
 		'lez', // Lezgian
-		// Mansi
-		'chm', // Mari (high)
-		'chm', // Mari (low)	***
+		'mns', // Mansi
+		'chm', // Mari 
+		'mrj', // Mari (high, hill)
+		'mhr', // Mari (low, meadow)
 		'ro', // Moldavian
 		'mn', // Mongolian
-		// Mordvin-Moksha
-		// Mordvin-Erza
-		// Nanay
-		// Nganasan
-		// Nenets
-		// Nivkh
+		'mdf', // Mordvin-Moksha
+		'myv', // Mordvin-Erza
+		'gld', // Nanay
+		'nio', // Nganasan
+		'yrk', // Nenets
+		'niv', // Nivkh or Gilyak
 		'nog', // Noghay
 		'os', // Ossetic
 		'se', 'sma', 'smi', // Saam
 		'sel', // Selkup
-		// Tabasaran
+		'tab', // Tabasaran
 		'tg', // Tajik
 		'tt', // Tatar
-		// Tat
-		// Tafalar
+		'ttt', // Tat
+		'kim', // Tofalar or Karagas
 		'tyv', // Tuva
 		'tk', // Turkmen
 		'udm', // Udmurt
-		// Udegey
+		'ude', // Udegey
 		'uz', // Uzbek
-		// Urghur
-		// Ulch
-		// Khakass
-		// Vakh Khanty
+		'ug', // Uyghur
+		'ulc', // Ulch
+		'kjh', // Khakass
+		'kca', // Vakh Khanty ***
 		// Kazym Khanty
-		// Surgut Khany
+		// Surgut Khanty
 		// Shurkshar Khanty
 		'rom', // Tsigan
 		'ce', // Chechen
 		'cv', // Chuvash
-		// Chukcha
-		// Shor
-		// Shugnan
-		// Evenki
-		// Even
-		// Eskimo
-		// Yukagir
-		// Yazgulam
+		'ckt', // Chukcha
+		'cjs', // Shor
+		'sgh', // Shugnan or Shughni
+		'evn', // Evenki
+		'eve', // Even
+		'esx', // Eskimo
+		'ykg', // Northern Yukagir
+		'yux', // Southern Yukagir
+		'yah', // Yazgulam
 		'sah' // Yakut
 	], 'script' : 'Latn', 'variant' : 'iso9_1995'},
 	'map' : 
@@ -575,7 +580,7 @@ var cyr_to_lat_iso9_1995 =
 "ԛ" : "q", "Ԛ" : "Q",	// 
 "л" : "l", "Л" : "L",	// 
 "љ" : "l̂", "Љ" : "L̂",	// L+0302 	l+0302 	l circumflex
-"Л́" : "ĺ", "Л́" : "Ĺ",	// 0139 	013A 	l acute // XXX This may be broken-- is the input correct?
+"л’" : "ĺ", "Л’" : "Ĺ",	// 0139 	013A 	l acute // XXX This may be broken-- is a two-symbol input handled correctly?
 "ӆ" : "ļ", "Ӆ" : "Ļ",	// 013B 	013C 	l cedilla
 "м" : "m", "М" : "M",	// 
 "н" : "n", "Н" : "N",	// 
@@ -585,7 +590,7 @@ var cyr_to_lat_iso9_1995 =
 "ҥ" : "ṅ", "Ҥ" : "Ṅ",	// 1E44 	1E45 	n dot
 "ԋ" : "ǹ", "Ԋ" : "Ǹ",	// 01F8 	01F9 	n grave
 "ӈ" : "ń", "Ӈ" : "Ń",	// 0143 	0144 	n acute
-//"Ň" : "0", "	" : "ň", 	n caron 	// XXX BROKEN. CHECK ISO 9
+//"Ň" : "0", "	" : "ň", //	n breve		// XXX This is clearly a full loop in the ISO 9 description, but I can't find a matching character in the Unicode table for Cyrillic
 "н̄" : "n̄", "Н̄" : "N̄",	// N+0304 	n+0304 	n macron
 "о" : "o", "О" : "O",	// 
 "ӧ" : "ö", "Ӧ" : "Ö",	// 00D6 	00F6 	o diaeresis
