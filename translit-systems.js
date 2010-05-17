@@ -1,3 +1,24 @@
+/* Jahat */
+/* Jahat is a special font and typography system that was used widely in Tatar
+   publications before the wide availability of standard Tatar fonts in
+   operating systems. */
+/* Convert Jahat code locations to Unicode */
+var jahat_to_standard_tatar_cyr = 
+{	'name' : "Jahat to Standard",
+	'parent' : null,
+	'from' : {'language' : ['tt'], 'script' : 'Cyrl', 'variant' : 'jahat'},
+	'to' : {'language' : ['tt'], 'script' : 'Cyrl'},
+	'map' :
+	{
+	"ћ" : "ң", "Ћ" : "Ң",
+	"ђ" : "ә", "Ђ" : "Ә",
+	"љ" : "ө", "Љ" : "Ө",
+	"њ" : "ү", "Њ" : "Ү",
+	"џ" : "һ", "Џ" : "Һ",
+	"ќ" : "җ", "Ќ" : "Җ"
+	}
+}
+
 /* Ad hoc Yanalif 1999-style system */
 var cyr_to_lat_yanalif1999 =
 {	'name' : "Yanalif 1999",
