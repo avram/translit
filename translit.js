@@ -1,4 +1,4 @@
-/*global cyr_to_lat_yanalif1999, cyr_to_lat_rus_alalc97, cyr_to_lat_tt_alalc97, cyr_to_lat_ba_alalc97, cyr_to_lat_rus_scholarly, cyr_to_lat_rus_iso9_1968, cyr_to_lat_iso9_1995, cyr_to_lat_rus_alalc97x, cyr_to_lat_tt_alalc97x, cyr_to_lat_ba_alalc97x */
+/*global cyr_to_lat_yanalif1999, cyr_to_lat_rus_alalc97, cyr_to_lat_tt_alalc97, cyr_to_lat_ba_alalc97, cyr_to_lat_rus_scholarly, cyr_to_lat_rus_iso9_1968, cyr_to_lat_iso9_1995, cyr_to_lat_rus_alalc97x, cyr_to_lat_tt_alalc97x, cyr_to_lat_ba_alalc97x, jahat_to_standard_tatar_cyr */
 /*jslint plusplus: false */
 
 // List of transliteration systems
@@ -24,6 +24,8 @@ function lookup(criteria, direction, systems) {
 		if (typeof systems[i].score === "undefined") {
 			systems[i].score = 0;
 		}
+		// TODO The distinction between matching a substring of a language code or region
+		// and matching an actual code or region is still not handled correctly here.
 		if (criteria[direction].language && systems[i][direction].language &&
 		    (systems[i][direction].language.indexOf(criteria[direction].language) !== -1)) {
 			systems[i].score += LANGUAGE;

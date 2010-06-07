@@ -1,3 +1,9 @@
+/**
+ Transliteration systems
+
+ New systems must be added to the array in translit.js to be activated.
+ */
+
 /* Jahat */
 /* Jahat is a special font and typography system that was used widely in Tatar
    publications before the wide availability of standard Tatar fonts in
