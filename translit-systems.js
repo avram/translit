@@ -4,7 +4,7 @@
    operating systems. */
 /* Convert Jahat code locations to Unicode */
 var jahat_to_standard_tatar_cyr = 
-{	'name' : "Jahat to Standard",
+{	'name' : "Jahat to Standard Tatar Cyrillic",
 	'parent' : null,
 	'from' : {'language' : ['tt'], 'script' : 'Cyrl', 'variant' : 'jahat'},
 	'to' : {'language' : ['tt'], 'script' : 'Cyrl'},
@@ -94,6 +94,31 @@ var cyr_to_lat_rus_alalc97 =
 	'to' : {'language' : 'ru', 'script' : 'Latn', 'variant' : 'alalc97'},
 	'map' :
 	{
+	// First the digraphs; final hard sign should be dropped
+	// Dropping a final character is hard-- the cases below are a start
+	"ъ " : " ",
+	"ъ-" : "-",
+	"ъ	" : "	",
+	"ъ!" : "!",
+	"ъ?" : "?",
+	"ъ:" : ":",
+	"ъ," : ",",
+	"ъ;" : ";",
+	"ъ." : ".",
+	"ъ)" : ")",
+	"ъ]" : "]",
+	"ъ»" : "»",
+	'ъ"' : '"',
+	'ъˮ' : 'ˮ',
+	'ъˮ' : 'ˮ',
+	'ъ}' : '}',
+	"ъ'" : "'",
+	'ъ”' : '”',
+	'ъ’' : '’',
+	// These are dashes of varying lengths -- they look the same in a fixed-width font!
+	"ъ—" : "—",
+	"ъ―" : "―",
+	"ъ–" : "–",
 	"а" : "a", "А" : "A",
 	"б" : "b", "Б" : "B",
 	"в" : "v", "В" : "V",
@@ -599,10 +624,10 @@ var cyr_to_lat_iso9_1995 =
 "қ" : "ķ", "Қ" : "Ķ",	// 0136 	0137 	k cedilla
 "к̨" : "k̀", "К̨" : "K̀",	// K+0300 	k+0300 	k grave
 "ԛ" : "q", "Ԛ" : "Q",	// 
-"л" : "l", "Л" : "L",	// 
 "љ" : "l̂", "Љ" : "L̂",	// L+0302 	l+0302 	l circumflex
 "л’" : "ĺ", "Л’" : "Ĺ",	// 0139 	013A 	l acute // XXX This may be broken-- is a two-symbol input handled correctly?
 "ӆ" : "ļ", "Ӆ" : "Ļ",	// 013B 	013C 	l cedilla
+"л" : "l", "Л" : "L",	// 
 "м" : "m", "М" : "M",	// 
 "н" : "n", "Н" : "N",	// 
 "њ" : "n̂", "Њ" : "N̂",	// N+0302 	n+0302 	n circumflex
@@ -611,7 +636,7 @@ var cyr_to_lat_iso9_1995 =
 "ҥ" : "ṅ", "Ҥ" : "Ṅ",	// 1E44 	1E45 	n dot
 "ԋ" : "ǹ", "Ԋ" : "Ǹ",	// 01F8 	01F9 	n grave
 "ӈ" : "ń", "Ӈ" : "Ń",	// 0143 	0144 	n acute
-//"Ň" : "0", "	" : "ň", //	n breve		// XXX This is clearly a full loop in the ISO 9 description, but I can't find a matching character in the Unicode table for Cyrillic
+//"0" : "Ň", "	" : "ň", //	n breve		// XXX This is clearly a full loop in the ISO 9 description, but I can't find a matching character in the Unicode table for Cyrillic
 "н̄" : "n̄", "Н̄" : "N̄",	// N+0304 	n+0304 	n macron
 "о" : "o", "О" : "O",	// 
 "ӧ" : "ö", "Ӧ" : "Ö",	// 00D6 	00F6 	o diaeresis

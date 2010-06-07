@@ -3,6 +3,7 @@
 
 // List of transliteration systems
 var systems = [
+	jahat_to_standard_tatar_cyr,
 	cyr_to_lat_yanalif1999,
 	cyr_to_lat_rus_alalc97,
 	cyr_to_lat_tt_alalc97,
@@ -36,10 +37,10 @@ function lookup(criteria, direction, systems) {
 			systems[i].score += SCRIPT;
 		}
 		if (criteria[direction].variant && systems[i][direction].variant && 
-		    (systems[i][direction].variant.indexOf(criteria[direction].variant) !== -1)) {
+		    (systems[i][direction].variant === criteria[direction].variant)) {
 			systems[i].score += VARIANT;
 		}
-		// print(direction + ": "+systems[i].name+" "+systems[i].score);
+		//print(direction + ": "+systems[i].name+" "+systems[i].score);
 	}
 
 	return systems.sort(function (a, b) {
@@ -107,7 +108,7 @@ function inherit(system) {
 	if (!system.parent) {
 		return system.map;
 	} else {
-		print("\tInherits from " + system.parent.name);
+		//print("\tInherits from " + system.parent.name);
 		parental_map = inherit(system.parent);
 		for (attr in parental_map) {
 			if (parental_map.hasOwnProperty(attr) && !system.map[attr]) {
@@ -148,7 +149,7 @@ function transliterate(inlang, outlang, text) {
 	inmatches = lookup(criteria, "from", systems);
 	outmatches = lookup(criteria, "to", inmatches);
 
-	print("Inheritance for system: " + outmatches[0].name);
+	//print("Inheritance for system: " + outmatches[0].name);
 	substitutions = inherit(outmatches[0]);
 
 	for (mapped in substitutions) {
