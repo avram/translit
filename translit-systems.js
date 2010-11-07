@@ -30,7 +30,7 @@ var cyr_to_lat_yanalif1999 =
 {	'name' : "Yanalif 1999",
 	'parent' : null,
 	'from' : {'language' : ['tt', 'ba'], 'script' : 'Cyrl'},
-	'to' : {'language' : ['tt', 'ba'], 'script' : 'Latn', 'variant' : 'yanalif1999'},
+	'to' : {'language' : ['tt', 'ba'], 'script' : 'Latn', 'variant' : 'yan1999'},
 	'map' :
 	{
 	"а" : "a", "А" : "A",

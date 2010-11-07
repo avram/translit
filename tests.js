@@ -26,6 +26,8 @@ assertEqual(transliterate("ru", "ru-iso9_1995", "This is a letter that is repres
 // Digraph input
 assertEqual(transliterate("ru", "ru-iso9_1995", "л’афлаф! Л’аф = лаф?"), "ĺaflaf! Ĺaf = laf?");
 assertEqual(transliterate("ru", "ru-alalc97x", "Коммерсантъ -- это моя любимая газета! Кто не любитъ? Не знаю. Мне какъ-то все равно. Он читает, она то нетъ. Объелся груш."), "Kommersant -- eto moia liubimaia gazeta! Kto ne liubit? Ne znaiu. Mne kak-to vse ravno. On chitaet, ona to net. Obʺelsia grush.");
+// More...
+assertEqual(transliterate("tt-Cyrl", "tt-Latn-yan1999", "Бүген күренекле"),"Bügen kürenekle");
 
 /* Tag parsing */
 print("[1mTag parsing[0m");
@@ -34,4 +36,3 @@ assertEqual(
 		transliterate({"language" : "ru", "region" : "RU", "script" : "Cyrl"},
 				{"script" : "Latn", "language" : "ru"},
 				"Сработает ли это? Тут была Юлия, купила хлеб."));
-
