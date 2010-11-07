@@ -151,15 +151,14 @@ function transliterate(inlang, outlang, text) {
 	inmatches = lookup(criteria, "from", systems);
 	outmatches = lookup(criteria, "to", inmatches);
 
-	//print("Inheritance for system: " + outmatches[0].name);
+	print("Inheritance for system: " + outmatches[0].name);
 	substitutions = inherit(outmatches[0]);
 
 	for (mapped in substitutions) {
+		//print(mapped + " - " + text);
 		if (substitutions.hasOwnProperty(mapped)) {
-			mapto = substitutions[mapped];
-			if (text.indexOf(mapped) !== -1) {
-				text = text.replace(mapped, mapto, "g");
-			}
+			var regex = new RegExp(mapped, "g");
+			text = text.replace(regex, substitutions[mapped]);
 		}
 	}
 	

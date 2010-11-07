@@ -106,12 +106,12 @@ var cyr_to_lat_rus_alalc97 =
 	"ъ-" : "-",
 	"ъ	" : "	",
 	"ъ!" : "!",
-	"ъ?" : "?",
+	"ъ\\?" : "?",	// Escaped
 	"ъ:" : ":",
 	"ъ," : ",",
 	"ъ;" : ";",
-	"ъ." : ".",
-	"ъ)" : ")",
+	"ъ\\." : ".",
+	"ъ\\)" : ")",	// Need to escape the parenthesis, since we interpret as regular expression
 	"ъ]" : "]",
 	"ъ»" : "»",
 	'ъ"' : '"',
