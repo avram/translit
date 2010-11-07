@@ -16,6 +16,14 @@ var systems = [
 	cyr_to_lat_iso9_1995
 ];
 
+function noop() {};
+
+if  (typeof(window['console']) == 'undefined') {
+       CSL.debug = noop;
+} else {
+       CSL.debug = function(str) { print("CSL: " + str); }
+}
+
 // Function to find systems that can handle language with given criteria
 function lookup(criteria, direction, systems) {
 	var LANGUAGE = 16, REGION = 1, SCRIPT = 32, VARIANT = 8, i;
@@ -23,7 +31,13 @@ function lookup(criteria, direction, systems) {
 	for (i = 0; i < systems.length; i++) {
 		if (typeof systems[i].score === "undefined") {
 			systems[i].score = 0;
-		}
+function noop() {};
+
+if  (typeof(window['console']) == 'undefined') {
+       CSL.debug = noop;
+} else {
+       CSL.debug = function(str) { print("CSL: " + str); }
+}		}
 		// TODO The distinction between matching a substring of a language code or region
 		// and matching an actual code or region is still not handled correctly here.
 		if (criteria[direction].language && systems[i][direction].language &&
@@ -151,7 +165,7 @@ function transliterate(inlang, outlang, text) {
 	inmatches = lookup(criteria, "from", systems);
 	outmatches = lookup(criteria, "to", inmatches);
 
-	print("Inheritance for system: " + outmatches[0].name);
+	//print("Inheritance for system: " + outmatches[0].name);
 	substitutions = inherit(outmatches[0]);
 
 	for (mapped in substitutions) {
